@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../vendors/vue.js"></script>
+    <script src="//cdn1.lncld.net/static/js/3.6.0/av-min.js"></script>
+    <script src="./js/init-av.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+    <title>简历编辑器</title>
+</head>
+
+<body>
+    <div class="page" id="app">
+        <aside class="sidebar">
+            <div class="up">
+                <ol>
+                    <li>
+                        <button>保存</button>
+                    </li>
+                    <li>
+                        <button>分享</button>
+                    </li>
+                    <li>
+                        <button>打印</button>
+                    </li>
+                    <li>
+                        <button>换肤</button>
+                    </li>
+                </ol>
+            </div>
+            <div class="down">
+                <button>登出</button>
+            </div>
+        </aside>
+        <main class="r-content">
+            <section class="info">
+                <h2>个人信息</h2>
+                <ol>
+                    <li>
+                        <span>姓名</span>
+                        <info v-bind:value="resume.name" v-on:edit="y('name',$event)"></info>
+                    </li>
+                    <li>
+                        <span>性别</span>
+                        <info v-bind:value="resume.gender" v-on:edit="y('gender',$event)"></info>
+
+                    </li>
+                    <li>
+                        <span>年龄</span>
+                        <info v-bind:value="resume.age" v-on:edit="y('age',$event)"></info>
+
+                    </li>
+                    <li>
+                        <span>邮箱</span>
+                        <info v-bind:value="resume.email" v-on:edit="y('email',$event)"></info>
+
+                    </li>
+                    <li>
+                        <span>微信</span>
+                        <info v-bind:value="resume.weChat" v-on:edit="y('weChat',$event)"></info>
+
+                    </li>
+                    <li>
+                        <span>电话</span>
+                        <info v-bind:value="resume.phone" v-on:edit="y('phone',$event)"></info>
+                    </li>
+
+                </ol>
+            </section>
+            <section class="skils">
+                <h2>技能</h2>
+                <ol>
+                    <li>
+                        <span>名称</span>
+                        <div>描述</div>
+                    </li>
+                    <li>
+                        <span>名称</span>
+                        <div>描述</div>
+                    </li>
+                    <li>
+                        <span>名称</span>
+                        <div>描述</div>
+                    </li>
+                    <li>
+                        <span>名称</span>
+                        <div>描述</div>
+                    </li>
+                </ol>
+            </section>
+            <section class="project">
+                <h2>项目</h2>
+                <ol>
+                    <li>
+                        <span>名称</span>
+                        <div>描述</div>
+                    </li>
+                    <li>
+                        <span>名称</span>
+                        <div>描述</div>
+                    </li>
+                    <li>
+                        <span>名称</span>
+                        <div>描述</div>
+                    </li>
+                    <li>
+                        <span>名称</span>
+                        <div>描述</div>
+                    </li>
+                </ol>
+            </section>
+        </main>
+    </div>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
