@@ -18,6 +18,10 @@ a {
     text-decoration: none
 }
 
+div[v-cloak] {
+    display: none;
+}
+
 
 /**/
 
@@ -34,7 +38,7 @@ a {
 }
 
 .up>ol>li {
-    margin:20px 0
+    margin: 20px 0
 }
 
 .r-content {
@@ -46,7 +50,7 @@ h2 {
     text-align: center
 }
 
-.info li{
+.info li {
     width: 30%;
     height: 40px;
     border: 1px solid blue;
@@ -67,16 +71,68 @@ h2 {
     border: 1px solid blue;
     margin: 10px 10px
 }
-.skils li{
+
+.skils li {
     width: 30%;
     height: 80px;
     border: 1px solid blue;
     margin: 10px 10px
 }
 
-textarea{
+textarea {
     font-size: 20px;
-    resize:none;
+    resize: none;
     outline: none;
     margin-top: 5px
+}
+
+
+/* 登录注册 */
+
+.log-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 460px;
+    height: 500px;
+    border: 1px solid green;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -230px;
+    background: #ccc
+}
+
+.log-in input{
+    height: 40px;
+    width: 300px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: #000000;
+    opacity: 0.2;
+    margin-top: 10px
+}
+.row {
+    margin: 10px 40px
+}
+
+
+.sign-up {
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    position: fixed;
+    top: 30%;
+    left: 30%
+}
+
+
+form {
+    
+    width: 80%;
+    height: 80%;
+    border: 1px solid red
 }

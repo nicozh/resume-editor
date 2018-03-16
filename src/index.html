@@ -15,9 +15,12 @@
 <body>
     <div class="page" id="app">
         <aside class="sidebar">
+            <div class="current-user">
+                当前用户:{{currentUser.userName}}
+            </div>
             <div class="up">
                 <ol>
-                    <li>
+                    <li @click="saveResume">
                         <button>保存</button>
                     </li>
                     <li>
@@ -31,8 +34,11 @@
                     </li>
                 </ol>
             </div>
-            <div class="down">
-                <button>登出</button>
+            <div class="down" class="sign-out" v-show="logOutBt">
+                <button @click="logOut">登出</button>
+            </div>
+            <div class="down" class="sign-out" v-show="logInBt">
+                <button @click="logInFrame=true">登录</button>
             </div>
         </aside>
         <main class="r-content">
@@ -113,6 +119,45 @@
                 </ol>
             </section>
         </main>
+        <div class="log-in" v-show="logInFrame" v-cloak @submit.prevent="logIn">
+            <h3>登录</h3>
+            <form action="">
+                <div class="row">
+                    <label for="r-email">username</label>
+                    <input type="text" id="r-email" v-model="logInData.userName">
+                </div>
+                <div class="row">
+                    <label for="r-email">password</label>
+                    <input type="text" id="r-email" v-model="logInData.password">
+                </div>
+                <div class="row" class="actions">
+                    <button type="submit">登录</button>
+                </div>
+                <a @click="signUpFrame=true,logInFrame=false" href="#">注册</a>
+            </form>
+        </div>
+
+        <div class="sign-up" v-show="signUpFrame" v-cloak @submit.prevent="signUp">
+            <h3>注册</h3>
+            <form action="">
+                <div class="row">
+                    <label for="r-email">用户名</label>
+                    <input v-model="userData.userName" type="text" id="r-email">
+                </div>
+                <div class="row">
+                    <label for="r-email">邮箱</label>
+                    <input v-model="userData.email" type="text" id="r-email">
+                </div>
+                <div class="row">
+                    <label for="r-email">密码</label>
+                    <input v-model="userData.password" type="text" id="r-email">
+                </div>
+                <div class="actions">
+                    <button type="submit">提交</button>
+                </div>
+                <a @click="signUpFrame=false,logInFrame=true" href="#">登录</a>
+            </form>
+        </div>
     </div>
 
     <script src="./js/main.js"></script>
