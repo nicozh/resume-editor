@@ -3,7 +3,7 @@ var app = new Vue({
     data: {
         logInBt: false,
         logOutBt: false,
-        logInFrame: true,
+        logInFrame: false,
         signUpFrame: false,
         resume: {
             name: 'xxx',
@@ -12,7 +12,13 @@ var app = new Vue({
             email: 'xxxx@outlook.com',
             phone: '15123456789',
             weChat: 'xxxx',
-            skils: [],
+            skils: [
+                { name: 'HTML&CSS', description: '熟悉HTML&CSS' },
+                { name: 'vue', description: '熟悉vue' },
+            ],
+            projects: [
+                { name: '画板', description: '在线画板', link: 'link', code: 'github' },
+            ],
         },
         userData: {
             userName: '',
@@ -46,6 +52,22 @@ var app = new Vue({
         y(key, value) {
             this.resume[key] = value
         },
+        onSkil(key, num, value, newValue) {
+            this.resume[key][Number(num)][value] = newValue
+        },
+        addSkil() {
+            this.resume.skils.push({ name: '', description: '' })
+        },
+        deleteSkil(index) {
+            console.log(index)
+            this.resume.skils.splice(index, 1)
+        },
+        addProject() {
+            this.resume.projects.push({ name: '', description: '', link: '', code: '' })
+        },
+        deleteProject(index) {
+            this.resume.projects.splice(index,1)
+        },
         saveResume() {
             let currentUser = AV.User.current();   //判断当前用户是否登录
             // console.log(currentUser)
@@ -56,8 +78,10 @@ var app = new Vue({
                 user.set('resume', this.resume);
                 // 保存到云端
                 user.save().then((todo) => {
-                    console.log(todo)
+                    alert('保存成功')
+                    // console.log(todo)
                 }, (error) => {
+                    alert('保存失败')
                     console.log(error)
                 })
 
@@ -90,9 +114,14 @@ var app = new Vue({
             user.setPassword(this.userData.password);
             // 设置邮箱
             user.setEmail(this.userData.email);
-            user.signUp().then(function (loginedUser) {
+            user.signUp().then((loginedUser) => {
                 console.log(loginedUser);
-            }, function (error) {
+            }, (error) => {
+                if (error.code === 202) {
+                    alert('用户名已经存在,请更换用户名')
+                } else if (error.code === 203 || 214) {
+                    alert('邮箱已被注册,请更换邮箱')
+                }
             });
         },
         logIn() {
