@@ -3,142 +3,144 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="../vendors/vue.js"></script>
     <script src="//cdn1.lncld.net/static/js/3.6.0/av-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//at.alicdn.com/t/font_595678_3o5f115bee6a8aor.js"></script>
     <script src="./js/init-av.js"></script>
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/aside.css">
+    <link rel="stylesheet" href="./css//iconfont.css">
+    <link rel="stylesheet" href="./css/info.css">
+    <link rel="stylesheet" href="./css/projects.css">
     <title>简历编辑器</title>
 </head>
 
 <body>
+
     <div class="page" id="app">
-        <aside class="sidebar">
-            <div class="current-user">
-                当前用户:{{currentUser.userName}}
-            </div>
-            <div class="up">
-                <ol>
-                    <li @click="saveResume">
-                        <button>保存</button>
-                    </li>
-                    <li>
-                        <button>分享</button>
-                    </li>
-                    <li>
-                        <button>打印</button>
-                    </li>
-                    <li>
-                        <button>换肤</button>
-                    </li>
-                </ol>
-            </div>
-            <div class="down" class="sign-out" v-show="logOutBt">
-                <button @click="logOut">登出</button>
-            </div>
-            <div class="down" class="sign-out" v-show="logInBt">
-                <button @click="logInFrame=true">登录</button>
-            </div>
-        </aside>
+
         <main class="r-content">
             <section class="info">
-                <h2>个人信息</h2>
-                <ol>
-                    <li>
-                        <span>姓名</span>
-                        <info v-bind:value="resume.name" v-on:edit="y('name',$event)"></info>
-                    </li>
-                    <li>
-                        <span>性别</span>
-                        <info v-bind:value="resume.gender" v-on:edit="y('gender',$event)"></info>
+                <div class="r-name">
+                    <info v-bind:value="resume.name" v-on:edit="y('name',$event)"></info>
+                </div>
+                <div class="technical-title">
+                    <info v-bind:value="resume.title" v-on:edit="y('title',$event)"></info>
+                </div>
+                <div class="info-box">
 
-                    </li>
-                    <li>
-                        <span>年龄</span>
-                        <info v-bind:value="resume.age" v-on:edit="y('age',$event)"></info>
 
-                    </li>
-                    <li>
-                        <span>邮箱</span>
-                        <info v-bind:value="resume.email" v-on:edit="y('email',$event)"></info>
+                    <ol>
+                        <span>个人信息</span>
+                        <li>
+                            <span>性别</span>
+                            <div class="info-text">
+                                <info v-bind:value="resume.gender" v-on:edit="y('gender',$event)"></info>
+                            </div>
+                        </li>
+                        <li>
+                            <span>年龄</span>
+                            <div class="info-text">
+                                <info v-bind:value="resume.age" v-on:edit="y('age',$event)"></info>
 
-                    </li>
-                    <li>
-                        <span>微信</span>
-                        <info v-bind:value="resume.weChat" v-on:edit="y('weChat',$event)"></info>
+                            </div>
+                        </li>
+                        <li>
+                            <span>邮箱</span>
+                            <div class="info-text">
+                                <info v-bind:value="resume.email" v-on:edit="y('email',$event)"></info>
 
-                    </li>
-                    <li>
-                        <span>电话</span>
-                        <info v-bind:value="resume.phone" v-on:edit="y('phone',$event)"></info>
-                    </li>
+                            </div>
+                        </li>
+                        <li>
+                            <span>微信</span>
+                            <div class="info-text">
+                                <info v-bind:value="resume.weChat" v-on:edit="y('weChat',$event)"></info>
+                            </div>
+                        </li>
+                        <li>
+                            <span>电话</span>
+                            <div class="info-text">
+                                <info v-bind:value="resume.phone" v-on:edit="y('phone',$event)"></info>
 
-                </ol>
+                            </div>
+                        </li>
+                    </ol>
+                    <div class="description">
+                        <span>自我描述</span>
+                        <info v-bind:value="resume.description" v-on:edit="y('description',$event)"></info>
+                    </div>
+                </div>
             </section>
-            <section class="skils">
-                <h2>技能</h2>
-                <ol>
-                    <li>
-                        <span>名称</span>
-                        <div>描述</div>
-                    </li>
-                    <li>
-                        <span>名称</span>
-                        <div>描述</div>
-                    </li>
-                    <li>
-                        <span>名称</span>
-                        <div>描述</div>
-                    </li>
-                    <li>
-                        <span>名称</span>
-                        <div>描述</div>
-                    </li>
-                </ol>
-            </section>
-            <section class="project">
-                <h2>项目</h2>
-                <ol>
-                    <li>
-                        <span>名称</span>
-                        <div>描述</div>
-                    </li>
-                    <li>
-                        <span>名称</span>
-                        <div>描述</div>
-                    </li>
-                    <li>
-                        <span>名称</span>
-                        <div>描述</div>
-                    </li>
-                    <li>
-                        <span>名称</span>
-                        <div>描述</div>
-                    </li>
-                </ol>
-            </section>
+            <div class="ability">
+                <section class="skils">
+                    <h3>技能</h3>
+                    <ol>
+                        <li v-for="(skil,index) in resume.skils">
+                            <info v-bind:value="resume.skils[index].name" v-on:edit="onSkil('skils',`${index}`,'name',$event)"></info>
+
+                            <info v-bind:value="resume.skils[index].description" v-on:edit="onSkil('skils',`${index}`,'description',$event)"></info>
+                            <span v-if="index>=2" @click="deleteSkil(index)">delete</span>
+                        </li>
+                        <li>
+                            <span @click="addSkil">添加技能</span>
+                        </li>
+                    </ol>
+                </section>
+                <section class="projects">
+                    <h3>项目</h3>
+                    <ol>
+                        <input id="preview-img" style=" display:none; border:1px solid red" v-on:change="saveImages" type="file">
+                        <li v-for="(project,index) in resume.projects">
+                            <div class="p-text">
+                                <info v-bind:value="resume.projects[index].name" v-on:edit="onSkil('projects',`${index}`,'name',$event)"></info>
+                                <info v-bind:value="resume.projects[index].description" v-on:edit="onSkil('projects',`${index}`,'description',$event)"></info>
+                                <info v-bind:value="resume.projects[index].code" v-on:edit="onSkil('projects',`${index}`,'code',$event)"></info>
+                                <info v-bind:value="resume.projects[index].link" v-on:edit="onSkil('projects',`${index}`,'link',$event)"></info>
+                                <span v-if="index>=2" @click="deleteProject(index)">delete</span>
+                            </div>
+                            <div class="p-img">
+                                <label @click="getProjectIndex(index)" v-bind:class=`img${index}` for="preview-img">点击添加预览图</label>
+                                <img v-bind:src="resume.projects[index].preview" alt="图片">
+                            </div>
+                        </li>
+                        <li>
+                            <span @click="addProject">添加项目</span>
+                        </li>
+                    </ol>
+                </section>
+            </div>
+
         </main>
         <div class="log-in" v-show="logInFrame" v-cloak @submit.prevent="logIn">
-            <h3>登录</h3>
+            <span @click="logInFrame=false" class="clouse">x</span>
+            <h2>登录</h2>
             <form action="">
                 <div class="row">
-                    <label for="r-email">username</label>
+                    <label for="r-email">用户名</label>
                     <input type="text" id="r-email" v-model="logInData.userName">
                 </div>
                 <div class="row">
-                    <label for="r-email">password</label>
+                    <label for="r-email">密码</label>
                     <input type="text" id="r-email" v-model="logInData.password">
                 </div>
                 <div class="row" class="actions">
                     <button type="submit">登录</button>
                 </div>
-                <a @click="signUpFrame=true,logInFrame=false" href="#">注册</a>
+                <div class="row">
+                    没有账号?点击
+                    <a @click="signUpFrame=true,logInFrame=false" href="javascript:;">注册</a>
+                </div>
             </form>
         </div>
 
         <div class="sign-up" v-show="signUpFrame" v-cloak @submit.prevent="signUp">
-            <h3>注册</h3>
+            <span @click="signUpFrame=false" class="clouse">x</span>
+            <h2>注册</h2>
             <form action="">
                 <div class="row">
                     <label for="r-email">用户名</label>
@@ -152,16 +154,63 @@
                     <label for="r-email">密码</label>
                     <input v-model="userData.password" type="text" id="r-email">
                 </div>
-                <div class="actions">
+                <div class="row" class="actions">
                     <button type="submit">提交</button>
                 </div>
-                <a @click="signUpFrame=false,logInFrame=true" href="#">登录</a>
+                <div class="row">
+                    已有账号,点击
+                    <a @click="signUpFrame=false,logInFrame=true" href="javascript:;">登录</a>
+                </div>
             </form>
         </div>
+
+        <div v-show="sharingFrame" class="sharing">
+            <textarea name="" id="url" cols="30" rows="10" readonly="readonly">{{sharLink.link}}</textarea>
+            <input type="button" @click="copyLink" value="点击复制代码" />
+            <button @click="sharingFrame = false">关闭窗口</button>
+        </div>
+
+        <header class="sidebar">
+            <div class="current-user">
+                <input id="head-img" style=" display:none;   opacity: 1; border:1px solid red" v-on:change="saveImages" type="file">
+                <div class="down" class="sign-out" v-show="logOutBt">
+                    <img v-bind:src="currentUser.userImg" style="background: #ccc" alt="" width="50px" height="50px">
+                    <span>{{currentUser.userName}}</span>
+                    <span @click="logOut">登出</span>
+                    <label for="head-img">上传</label>
+                </div>
+                <div class="down" class="sign-out" v-show="logInBt">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-iconset0143"></use>
+                    </svg>
+                    <div>{{currentUser.userName}}</div>
+                    <span @click="logInFrame=true">登录</span>
+                </div>
+            </div>
+
+            <div class="up">
+                <ol>
+                    <li @click="saveResume">
+                        <span>保存</span>
+                    </li>
+                    <li>
+                        <span @click="sharingFrame=true">分享</span>
+                    </li>
+                    <li>
+                        <span @click="print">打印</span>
+                    </li>
+                    <li>
+                        <span>换肤</span>
+                    </li>
+                </ol>
+            </div>
+
+        </header>
     </div>
 
     <script src="./js/main.js"></script>
     <script src="./js/app.js"></script>
+    <script src="./js//textarea.js"></script>
 </body>
 
 </html>
