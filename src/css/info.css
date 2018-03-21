@@ -1,0 +1,119 @@
+
+
+
+/* .info .r-name>.out-box::before {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 80px;
+    border: 1px solid green;
+    border-radius: 50%;
+    position: absolute;
+    background: green;
+    left: 20px
+} */
+
+.info .r-name>.out-box>textarea {
+    font-size: 40PX;
+    width: 180px;
+    line-height: 40px;
+    height: 50px;
+    max-width: 200px;
+    margin: 0 auto;
+    text-align: center
+    /* border: 1px solid red */
+}
+
+.info .technical-title>.out-box>textarea {
+    font-size: 20px;
+    text-align: center;
+    max-width: 200px;
+    margin: 0 auto;
+    font-weight: bold
+}
+
+.info-box {
+    margin: 20px auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between
+}
+
+.info ol {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* height: 20vh; */
+    border: 1px solid red;
+    min-height: 200px;
+    position: relative;
+}
+
+.info ol>span,.description span {
+    display: block;
+    
+    font-size: 18px;
+    margin-bottom: 10px
+}
+
+.description textarea{
+    width: 100%;
+}
+.r-name {
+    border: 1px solid red;
+}
+
+.description {
+    width: 50%;
+    border: 1px solid red;
+}
+
+.social {
+    min-height: 20vh;
+    border: 1px solid red
+}
+
+.info li {
+    display: flex;
+}
+.info li .info-text{
+    width: 80%
+}
+.info li span {
+    line-height: 34px
+}
+
+.info .info-text {
+    margin-left: 5px
+}
+.info .info-text textarea{
+    width: 100%
+}
+.info-photo{
+    border: 1px solid red;
+    width: 100px;
+    height: 110px;
+    position: absolute;
+    top: 5px;
+    right: 5px
+}
+.info-photo>img{
+    width: 100%;
+    height: 100%
+}
+
+.info-photo:hover>label{
+    display: block;
+}
+.info-photo>label{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 110px;
+    text-align: center;
+    color: peru;
+}

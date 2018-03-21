@@ -1,0 +1,22 @@
+.info-box{
+    display: block;
+    width: 100%;
+}
+.info-box>ol,.info-box>.description{
+    width: 80%;
+    margin: 0 auto;
+    
+}
+.skils>ol{
+    display: block;
+}
+.skils>ol>li{
+    width: 100%
+}
+.r-content .projects>ol>li{
+    display: block;
+    max-height: 400px;
+}
+.projects>ol>li>.p-text,.projects>ol>li>.p-img{
+    width: 100%;
+}

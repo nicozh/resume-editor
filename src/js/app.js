@@ -14,6 +14,7 @@ var app = new Vue({
             phone: '15123456789',
             weChat: 'xxxx',
             description: '简介',
+            infoPhoto: 'url',
             blog: '',
             github: '',
             title: '前端工程师',
@@ -22,8 +23,8 @@ var app = new Vue({
                 { name: 'vue', description: '熟悉vue' },
             ],
             projects: [
-                { name: '画板', description: '在线画板', link: 'link', code: 'github', preview: 'url' },
-                { name: '佩奇', description: 'CSS3佩奇', link: 'link', code: 'github', preview: 'url' },
+                { name: '画板', description: '项目描述', link: 'link', code: 'github', preview: 'url' },
+                { name: '佩奇', description: '项目描述', link: 'link', code: 'github', preview: 'url' },
             ],
             projectIndex: NaN
         },
@@ -86,7 +87,7 @@ var app = new Vue({
             this.resume.skils.splice(index, 1)
         },
         addProject() {
-            this.resume.projects.push({ name: '项目名', description: '描述', link: '预览链接', code: '源码地址',preview:'图片' })
+            this.resume.projects.push({ name: '项目名', description: '描述', link: '预览链接', code: '源码地址', preview: '图片' })
         },
         deleteProject(index) {
             this.resume.projects.splice(index, 1)
@@ -106,18 +107,21 @@ var app = new Vue({
                     var user = AV.Object.createWithoutData('User', currentUser.id);
                     console.log('文件保存成功')
                     let fileUrl = file.url()
-                    console.log(fileUrl)     
+                    console.log(fileUrl)
                     console.log(currentId)
                     if (currentId === 'head-img') {
                         this.currentUser.userImg = fileUrl
                         user.set('userImg', fileUrl);
-                    }else if(currentId ==='preview-img'){
+                    } else if (currentId === 'preview-img') {
                         console.log(22)
-                        this.resume.projects[this.resume.projectIndex].preview=fileUrl
-                        user.set('previewImg',fileUrl );
+                        this.resume.projects[this.resume.projectIndex].preview = fileUrl
+                        user.set('resume', this.resume);
+                    } else if (currentId === 'info-photo') {
+                        this.resume.infoPhoto =fileUrl
+                        user.set('resume',this.resume)
                     }
                     //获取url
-                    
+
                     // 储存url
                     console.log(2)
                     user.save().then((todo) => {
@@ -181,7 +185,7 @@ var app = new Vue({
             // 设置邮箱
             user.setEmail(this.userData.email);
             user.set('userImg', '');
-            user.set('previewImg','')
+            // user.set('previewImg','')
             user.signUp().then((loginedUser) => {
                 alert('注册成功')
                 window.location.reload()
@@ -196,7 +200,7 @@ var app = new Vue({
         },
         logIn() {
             AV.User.logIn(this.logInData.userName, this.logInData.password).then((loginedUser) => {
-            
+
                 this.currentUser.userName = loginedUser.attributes.username
                 this.currentUser.id = loginedUser.id
                 this.currentUser.userImg = loginedUser.attributes.userImg

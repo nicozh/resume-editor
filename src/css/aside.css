@@ -1,0 +1,77 @@
+.sidebar {
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ccc
+}
+
+.current-user>.user-sign {
+    display: flex;
+    margin: 5px 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.current-user>.user-sign img {
+    width: 100%;
+    height: 100%;
+}
+
+.current-user>.user-sign>.user-img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border: 1px solid #999;
+    border-radius: 3px;
+}
+.current-user>.user-sign:hover label{
+    display: block;
+}
+
+.current-user>.user-sign label {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.current-user {
+    min-width: 30%
+}
+
+.current-user svg {
+    margin-top: 7px
+}
+
+.sidebar>ol {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.sidebar span {
+    display: block;
+    border: 1px solid papayawhip;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sidebar span:hover {
+    color: palevioletred
+}
