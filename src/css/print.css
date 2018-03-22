@@ -1,3 +1,6 @@
 .sidebar{
     display: none;
 }
+.add-skil,.add-project{
+    display: none
+}

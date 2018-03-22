@@ -1,6 +1,3 @@
-
-
-
 /* .info .r-name>.out-box::before {
     content: '';
     display: block;
@@ -24,6 +21,10 @@
     /* border: 1px solid red */
 }
 
+.info .info-box>.description>.out-box {
+    height: 80%
+}
+
 .info .technical-title>.out-box>textarea {
     font-size: 20px;
     text-align: center;
@@ -36,7 +37,8 @@
     margin: 20px auto;
     width: 80%;
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    border: 1px solid #aaa
 }
 
 .info ol {
@@ -48,25 +50,29 @@
     border: 1px solid red;
     min-height: 200px;
     position: relative;
+    margin: 5px
 }
 
-.info ol>span,.description span {
+.info ol>span,
+.description span {
     display: block;
-    
     font-size: 18px;
     margin-bottom: 10px
 }
 
-.description textarea{
+.description textarea {
     width: 100%;
+    max-height: 100%
 }
+
 .r-name {
-    border: 1px solid red;
+    border: 1px solid #aaa;
 }
 
 .description {
     width: 50%;
     border: 1px solid red;
+    margin: 5px;
 }
 
 .social {
@@ -77,9 +83,11 @@
 .info li {
     display: flex;
 }
-.info li .info-text{
+
+.info li .info-text {
     width: 80%
 }
+
 .info li span {
     line-height: 34px
 }
@@ -87,26 +95,30 @@
 .info .info-text {
     margin-left: 5px
 }
-.info .info-text textarea{
-    width: 100%
+
+.info .info-text textarea {
+    width: 70%
 }
-.info-photo{
-    border: 1px solid red;
+
+.info-photo {
+    border: 1px solid #ccc;
     width: 100px;
     height: 110px;
     position: absolute;
     top: 5px;
     right: 5px
 }
-.info-photo>img{
+
+.info-photo>img {
     width: 100%;
     height: 100%
 }
 
-.info-photo:hover>label{
+.info-photo:hover>label {
     display: block;
 }
-.info-photo>label{
+
+.info-photo>label {
     display: none;
     width: 100%;
     height: 100%;

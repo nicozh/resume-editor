@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./css//iconfont.css">
     <link rel="stylesheet" href="./css/info.css">
     <link rel="stylesheet" href="./css/projects.css">
-    <link rel="stylesheet" href="./css/mobile.css" media="(max-width:420px)">
+    <link rel="stylesheet" href="./css/mobile.css" media="(max-width:768px)">
     <link rel="stylesheet" href="./css/skils.css">
     <link rel="stylesheet" href="./css/print.css" media="print">
     <title>简历编辑器</title>
@@ -90,16 +90,20 @@
                     <ol>
                         <li v-for="(skil,index) in resume.skils">
                             <div class="skil-name">
+                                <span>技能</span>
                                 <info v-bind:value="resume.skils[index].name" v-on:edit="onSkil('skils',`${index}`,'name',$event)"></info>
                             </div>
-
-                            <info v-bind:value="resume.skils[index].description" v-on:edit="onSkil('skils',`${index}`,'description',$event)"></info>
+                            <div class="skil-name">
+                                <span>描述</span>
+                                <info v-bind:value="resume.skils[index].description" v-on:edit="onSkil('skils',`${index}`,'description',$event)"></info>
+                            </div>
                             <span class="del-skil" v-if="index>=2" @click="deleteSkil(index)">删除</span>
                         </li>
-                        <li>
-                            <span @click="addSkil">添加技能</span>
-                        </li>
+
                     </ol>
+                    <div class="add-skil">
+                        <span @click="addSkil">添加技能</span>
+                    </div>
                 </section>
                 <section class="projects">
                     <h3>项目</h3>
@@ -107,18 +111,34 @@
                         <input id="preview-img" style=" display:none; border:1px solid red" v-on:change="saveImages" type="file">
                         <li v-for="(project,index) in resume.projects">
                             <div class="p-text">
-                                <info v-bind:value="resume.projects[index].name" v-on:edit="onSkil('projects',`${index}`,'name',$event)"></info>
-                                <info v-bind:value="resume.projects[index].description" v-on:edit="onSkil('projects',`${index}`,'description',$event)"></info>
-                                <info v-bind:value="resume.projects[index].code" v-on:edit="onSkil('projects',`${index}`,'code',$event)"></info>
-                                <info v-bind:value="resume.projects[index].link" v-on:edit="onSkil('projects',`${index}`,'link',$event)"></info>
-                                <span v-if="index>=2" @click="deleteProject(index)">delete</span>
+                                <div class="wrapper">
+                                    <span>作品</span>
+                                    <info v-bind:value="resume.projects[index].name" v-on:edit="onSkil('projects',`${index}`,'name',$event)"></info>
+
+                                </div>
+                                <div class="wrapper">
+                                    <span>源码</span>
+                                    <info v-bind:value="resume.projects[index].code" v-on:edit="onSkil('projects',`${index}`,'code',$event)"></info>
+
+                                </div>
+                                <div class="wrapper">
+                                    <span>预览</span>
+                                    <info v-bind:value="resume.projects[index].link" v-on:edit="onSkil('projects',`${index}`,'link',$event)"></info>
+
+                                </div>
+                                <div class="wrapper">
+                                    <span>描述</span>
+                                    <info v-bind:value="resume.projects[index].description" v-on:edit="onSkil('projects',`${index}`,'description',$event)"></info>
+
+                                </div>
+                                <span class="del-project" v-if="index>=2" @click="deleteProject(index)">删除</span>
                             </div>
                             <div class="p-img">
                                 <label @click="getProjectIndex(index)" v-bind:class=`img${index}` for="preview-img">点击添加预览图</label>
                                 <img v-bind:src="resume.projects[index].preview" alt="">
                             </div>
                         </li>
-                        <li>
+                        <li class="add-project">
                             <span @click="addProject">添加项目</span>
                         </li>
                     </ol>
@@ -185,18 +205,22 @@
                 <input id="head-img" style=" display:none;   opacity: 1; border:1px solid red" v-on:change="saveImages" type="file">
                 <div class="user-sign" v-show="logOutBt">
                     <div class="user-img">
-                        <img v-bind:src="currentUser.userImg" >
+                        <img v-bind:src="currentUser.userImg" alt="">
                         <label for="head-img">添加头像</label>
                     </div>
-                    <span>{{currentUser.userName}}</span>
-                    <span @click="logOut">登出</span>
+                    <div class="userandsign">
+                        <strong>{{currentUser.userName}}</strong>
+                        <span @click="logOut">登出</span>
+                    </div>
                 </div>
                 <div class="user-sign" v-show="logInBt">
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-iconset0143"></use>
-                    </svg>
-                    <div>{{currentUser.userName}}</div>
-                    <span @click="logInFrame=true">登录</span>
+                    <div class="user-img">
+                        <img src="" alt="">
+                    </div>
+                    <div class="userandsign">
+                        <div>{{currentUser.userName}}</div>
+                        <span @click="logInFrame=true">登录</span>
+                    </div>
                 </div>
             </div>
 

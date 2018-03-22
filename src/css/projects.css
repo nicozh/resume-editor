@@ -1,5 +1,4 @@
-
-.p-img{
+.p-img {
     width: 50%;
     max-width: 50%;
     border: 1px solid red;
@@ -9,12 +8,14 @@
     display: flex;
     align-items: center
 }
-.p-img:hover>label{
+
+.p-img:hover>label {
     display: block;
 }
-.p-img>label{
+
+.p-img>label {
     position: absolute;
-    display: none;    
+    display: none;
     top: 0px;
     right: 0px;
     border: 1px solid greenyellow;
@@ -23,24 +24,46 @@
     color: slateblue;
     font-size: 25px
 }
-.p-img>img{
 
+.p-img>img {
     max-width: 100%;
     max-height: 100%
-    
 }
-.p-text{
+
+.p-text {
     width: 50%;
     border: 1px solid blueviolet;
     display: flex;
     flex-direction: column;
-    justify-content: space-between 
+    justify-content: space-between;
+    position: relative;
+}
+
+.p-text>.wrapper {
+    display: flex;
+    
+}
+.p-text>.wrapper .out-box{
+    flex: 1
 }
 .r-content .projects li {
     display: flex;
     justify-content: space-between;
     margin: 10px auto;
     width: 80%;
-    max-height: 200px;
-    border: 1px solid blue;
+    max-height: 300px;
+    border: 1px solid #aaa;
+    overflow: hidden;
+}
+.projects li:hover>.p-text .del-project{
+    display: block
+}
+.projects>ol>li>.p-text>.del-project{
+    display: none;
+    border: 1px solid #ccc;
+    position: absolute;
+    left: 89%;
+    top: 2px;
+    padding: 1px;
+    border-radius: 3px;
 }

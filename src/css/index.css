@@ -35,12 +35,12 @@ textarea {
     display: block;
     width: 100%;
     /* min-width: 60px; */
-    height: 34px;
+    height: 100%;
     overflow: hidden;
     padding: 5px 10px;
     /* margin: 0px auto 0; */
     resize: none;
-    line-height: 24px;
+    line-height: 20px;
     font-size: 16px;
     color: #666;
     /* border: 1px solid blue; */
@@ -74,7 +74,7 @@ textarea:focus {
 /**/
 
 .r-content {
-    border: 1px solid red;
+    border: 1px solid #aaa;
 }
 
 textarea#url {

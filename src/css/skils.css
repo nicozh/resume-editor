@@ -8,15 +8,33 @@
     width: 80%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
+    justify-content: space-between;
     margin: 0 auto
     
 }
-
+.skils>.add-skil{
+    width: 80%;
+    border: 1px solid #aaa;
+    text-align: center;
+    margin: 8px auto;
+}
+.skils .skil-name{
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px
+}
+.skils .skil-name>.out-box{
+    flex: 1
+}
+.skils .skil-name>span{
+    display: block;
+}
 .skils li {
-    width: 50%;
-    border: 1px solid blue;
-    position: relative;    
+    width: 49%;
+    border: 1px solid #aaa;
+    position: relative;
+    margin: 5px 0    
    
 }
 
