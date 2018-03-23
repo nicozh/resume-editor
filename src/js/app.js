@@ -4,8 +4,8 @@ var app = new Vue({
         sharingFrame: false,
         logInBt: false,
         logOutBt: false,
-        logInFrame: false,
         signUpFrame: false,
+        logInFrame: false,
         resume: {
             name: '姓名',
             gender: '男',
@@ -14,7 +14,7 @@ var app = new Vue({
             phone: '15123456789',
             weChat: 'xxxx',
             description: '简介',
-            infoPhoto: 'url',
+            infoPhoto: '',
             blog: '',
             github: '',
             title: '前端工程师',
@@ -28,15 +28,6 @@ var app = new Vue({
             ],
             projectIndex: NaN
         },
-        userData: {
-            userName: '',
-            password: '',
-            email: '',
-        },
-        logInData: {
-            userName: '',
-            password: '',
-        },
         currentUser: {
             userName: '',
             id: '',
@@ -45,15 +36,8 @@ var app = new Vue({
         sharLink: {
             link: ''
         }
-
     },
     methods: {
-        copyLink() {
-            var Url2 = document.getElementById("url");
-            Url2.select(); // 选择对象
-            document.execCommand("Copy"); // 执行浏览器复制命令
-            console.log("已复制好，可贴粘。");
-        },
         getCurrentUser() {
             let currentUser = AV.User.current()
             if (currentUser) {
@@ -117,8 +101,8 @@ var app = new Vue({
                         this.resume.projects[this.resume.projectIndex].preview = fileUrl
                         user.set('resume', this.resume);
                     } else if (currentId === 'info-photo') {
-                        this.resume.infoPhoto =fileUrl
-                        user.set('resume',this.resume)
+                        this.resume.infoPhoto = fileUrl
+                        user.set('resume', this.resume)
                     }
                     //获取url
 
@@ -175,48 +159,16 @@ var app = new Vue({
                 // 异常处理
             });
         },
-        signUp() {
-            // 新建 AVUser 对象实例
-            let user = new AV.User();
-            // 设置用户名
-            user.setUsername(this.userData.userName);
-            // 设置密码
-            user.setPassword(this.userData.password);
-            // 设置邮箱
-            user.setEmail(this.userData.email);
-            user.set('userImg', '');
-            // user.set('previewImg','')
-            user.signUp().then((loginedUser) => {
-                alert('注册成功')
-                window.location.reload()
-            }, (error) => {
-                console.log(error)
-                if (error.code === 202) {
-                    alert('用户名已经存在,请更换用户名')
-                } else if (error.code === 203 || 214) {
-                    alert('邮箱已被注册,请更换邮箱')
-                }
-            });
-        },
-        logIn() {
-            AV.User.logIn(this.logInData.userName, this.logInData.password).then((loginedUser) => {
-
-                this.currentUser.userName = loginedUser.attributes.username
-                this.currentUser.id = loginedUser.id
-                this.currentUser.userImg = loginedUser.attributes.userImg
-                // console.log(this.currentUser.id)
-                this.logInFrame = false
-                this.logInBt = false
-                this.logOutBt = true
-                alert('登录成功')
-                // window.location.reload()
-            }, (error) => {
-                if (error.code === 210) {
-                    alert('用户名和密码不匹配')
-                } else if (error.code === 211) {
-                    alert('用户名不存在')
-                }
-            });
+        logIn(loginedUser) {
+            this.currentUser.userName = loginedUser.attributes.username
+            this.currentUser.id = loginedUser.id
+            this.currentUser.userImg = loginedUser.attributes.userImg
+            // console.log(this.currentUser.id)
+            this.logInFrame = false
+            this.logInBt = false
+            this.logOutBt = true
+            alert('登录成功')
+            window.location.reload()
         },
         logOut() {
             AV.User.logOut();
@@ -242,5 +194,6 @@ window.onload = function () {
     } else {
         app.getCurrentUser()
     }
+
 }
 

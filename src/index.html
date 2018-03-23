@@ -35,8 +35,6 @@
                     <info v-bind:value="resume.title" v-on:edit="y('title',$event)"></info>
                 </div>
                 <div class="info-box">
-
-
                     <ol>
                         <input id="info-photo" style=" display:none; border:1px solid red" v-on:change="saveImages" type="file">
                         <span>个人信息</span>
@@ -74,7 +72,6 @@
                             <span>电话</span>
                             <div class="info-text">
                                 <info v-bind:value="resume.phone" v-on:edit="y('phone',$event)"></info>
-
                             </div>
                         </li>
                     </ol>
@@ -146,60 +143,11 @@
             </div>
 
         </main>
-        <div class="log-in" v-show="logInFrame" v-cloak @submit.prevent="logIn">
-            <span @click="logInFrame=false" class="clouse">x</span>
-            <h2>登录</h2>
-            <form action="">
-                <div class="row">
-                    <label for="r-email">用户名</label>
-                    <input type="text" id="r-email" v-model="logInData.userName">
-                </div>
-                <div class="row">
-                    <label for="r-email">密码</label>
-                    <input type="text" id="r-email" v-model="logInData.password">
-                </div>
-                <div class="row" class="actions">
-                    <button type="submit">登录</button>
-                </div>
-                <div class="row">
-                    没有账号?点击
-                    <a @click="signUpFrame=true,logInFrame=false" href="javascript:;">注册</a>
-                </div>
-            </form>
-        </div>
+        <login v-show="logInFrame" @clouse-login="logInFrame=false" @login="logIn" @show-signup="signUpFrame=true,logInFrame=false"></login>
 
-        <div class="sign-up" v-show="signUpFrame" v-cloak @submit.prevent="signUp">
-            <span @click="signUpFrame=false" class="clouse">x</span>
-            <h2>注册</h2>
-            <form action="">
-                <div class="row">
-                    <label for="r-email">用户名</label>
-                    <input v-model="userData.userName" type="text" id="r-email">
-                </div>
-                <div class="row">
-                    <label for="r-email">邮箱</label>
-                    <input v-model="userData.email" type="text" id="r-email">
-                </div>
-                <div class="row">
-                    <label for="r-email">密码</label>
-                    <input v-model="userData.password" type="text" id="r-email">
-                </div>
-                <div class="row" class="actions">
-                    <button type="submit">提交</button>
-                </div>
-                <div class="row">
-                    已有账号,点击
-                    <a @click="signUpFrame=false,logInFrame=true" href="javascript:;">登录</a>
-                </div>
-            </form>
-        </div>
-
-        <div v-show="sharingFrame" class="sharing">
-            <textarea name="" id="url" cols="30" rows="10" readonly="readonly">{{sharLink.link}}</textarea>
-            <input type="button" @click="copyLink" value="点击复制代码" />
-            <button @click="sharingFrame = false">关闭窗口</button>
-        </div>
-
+        <sign-up v-show="signUpFrame" @clouse-signup="signUpFrame=false" @show-login="signUpFrame=false,logInFrame=true"></sign-up>
+        <sharing v-show="sharingFrame" @clouse-sharing="sharingFrame = false" :shar-link="sharLink.link"></sharing>
+        
         <header class="sidebar">
             <div class="current-user">
                 <input id="head-img" style=" display:none;   opacity: 1; border:1px solid red" v-on:change="saveImages" type="file">
@@ -243,6 +191,9 @@
     </div>
 
     <script src="./js/main.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/signup.js"></script>
+    <script src="./js/sharing.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js//textarea.js"></script>
 </body>
