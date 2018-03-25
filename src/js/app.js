@@ -6,6 +6,7 @@ var app = new Vue({
         logOutBt: false,
         signUpFrame: false,
         logInFrame: false,
+        manager: true,
         resume: {
             name: '姓名',
             gender: '男',
@@ -15,8 +16,8 @@ var app = new Vue({
             weChat: 'xxxx',
             description: '简介',
             infoPhoto: '',
-            blog: '',
-            github: '',
+            blog: 'xxx.com',
+            github: 'github.com/xxx',
             title: '前端工程师',
             skils: [
                 { name: 'HTML&CSS', description: '熟悉HTML&CSS' },
@@ -143,7 +144,7 @@ var app = new Vue({
             else {
 
                 this.logInFrame = true
-                console.log(currentUser)
+                // console.log(currentUser)
                 //currentUser 为空时，可打开用户注册界面…
             }
 
@@ -175,6 +176,7 @@ var app = new Vue({
             this.logOutBt = false
             this.logInBt = true
             this.currentUser.userName = ''
+            window.location.reload()            
             alert('注销成功')
 
             // 现在的 currentUser 是 null 了
@@ -191,6 +193,14 @@ window.onload = function () {
     let searchId = location.search.split('=')[1]
     if (searchId) {
         app.getResume(searchId)
+        app.manager = false
+        setTimeout(() => {
+            let x = document.querySelectorAll('textarea')
+            for (let i = 0; i < x.length; i++) {
+                $(x[i]).attr('readonly', 'false')
+            }
+        }, 1000);
+       
     } else {
         app.getCurrentUser()
     }
