@@ -1,19 +1,34 @@
+.sign-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2
+}
+
 .clouse {
     display: block;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    line-height: 15px;
+    line-height: 16px;
     position: absolute;
     top: 7px;
     left: 7px;
-    border: 1px solid red;
-    background: tomato;
     text-align: center;
+    color: #ccc;
+    font-size: 21px;
 }
 
 .clouse:hover {
-    background: red
+    color: tomato;
+    font-size: 23px;
+    transition: all 0.3
 }
 
 .log-in::before,
@@ -27,7 +42,7 @@
     left: -27px;
     top: -15px;
     transform: rotate(-41deg);
-    background: #FDE3A6;
+    background: #293462;
 }
 
 .log-in::after,
@@ -39,7 +54,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: url(../images/login.png);
+    background: whitesmoke;
     filter: blur(3px);
     z-index: -1;
 }
@@ -51,14 +66,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-width: 460px;
-    min-height: 500px;
-    border: 1px solid wheat;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -250px;
-    margin-left: -230px;
     background-size: cover;
     background-position: center center;
     overflow: hidden;
@@ -67,30 +74,30 @@
 .log-in input,
 .sign-up input {
     height: 40px;
-    width: 300px;
+    width: 270px;
     border-radius: 5px;
     outline: none;
     background-color: transparent;
     margin-top: 10px;
-    border: 1px solid black;
+    border: 1px solid #ccc;
     padding-left: 10px;
 }
 
 .row>button {
-    width: 300px;
+    width: 270px;
     height: 40px;
     border-radius: 5px;
     border: none;
     background: #CA3435;
     color: white;
-    font-size: 19px
+    font-size: 19px;
+    margin-top: 10px;
 }
 
 .row {
-    margin: 20px 30px;
+    margin: 10px 10px;
 }
 
 form {
-    width: 80%;
-    height: 80%;
+    width: 85%;
 }
