@@ -24,7 +24,8 @@ h3 {
 }
 
 .page {
-    margin-top: 80px
+    margin-top: 80px;
+    border: 1px solid #aaa;    
 }
 
 div[v-cloak] {
@@ -34,49 +35,55 @@ div[v-cloak] {
 textarea {
     display: block;
     width: 100%;
-    /* min-width: 60px; */
     height: 100%;
     overflow: hidden;
     padding: 5px 10px;
-    /* margin: 0px auto 0; */
     resize: none;
     line-height: 20px;
     font-size: 16px;
     color: #666;
-    /* border: 1px solid blue; */
     outline: 0 none;
-    /* box-shadow: 0 0 5px #999; */
     border-radius: 3px;
     box-sizing: border-box;
     transition: all 200ms linear;
-    border: none
+    border: none;
 }
 
 textarea:focus {
     color: #277fe4;
-    border-color: #2196f3;
-    box-shadow: 0 0 5px #03a9f4;
+    border-color: rgba(0, 0, 0, 1);
 }
 
+
+/* 分享链接框 */
+
 .sharing {
-    width: 400px;
-    height: 400px;
+    width: 40%;
     position: fixed;
     top: 50%;
     left: 50%;
-    border: 1px solid red;
-    margin-top: -200px;
-    margin-left: -200px;
-    background: #ccc
+    border: 1px solid #ccc;
+    margin-top: -75px;
+    margin-left: -20%;
+    padding: 8px;
+    background: #254665;
+    color: white
 }
 
-
-/**/
-
-.r-content {
-    border: 1px solid #aaa;
+.sharing>.url {
+    margin: 5px;
+    padding: 5px;
+    height: 100px;
+    word-break: break-all;
 }
 
-textarea#url {
-    height: 100px
+.sharing>.button {
+    display: flex;
+    justify-content: space-around
 }
+
+.sharing>.button>span {
+    border: 1px solid #999;
+    border-radius: 3px;
+}
+

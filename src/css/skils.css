@@ -1,7 +1,7 @@
 
 .skils {
     width: 100%;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 
 .skils ol {
@@ -17,7 +17,7 @@
     width: 80%;
     border: 1px solid #aaa;
     text-align: center;
-    margin: 8px auto;
+    margin: 8px auto ;
 }
 .skils .skil-name{
     display: flex;
@@ -34,8 +34,8 @@
     width: 49%;
     border: 1px solid #aaa;
     position: relative;
-    margin: 5px 0    
-   
+    margin: 5px 0;
+    height: 140px;
 }
 
 .skils li>.del-skil{
