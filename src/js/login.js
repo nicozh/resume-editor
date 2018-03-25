@@ -1,15 +1,16 @@
 Vue.component('login', {
-    template: `<div v-bind:class="'log-in'"  v-cloak @submit.prevent="logIn">
+    template: `<div :class="'sign-wrapper'">
+    <div v-bind:class="'log-in'"  v-cloak @submit.prevent="logIn">
     <span @click="clouseLoginFrame" v-bind:class="'clouse'">x</span>
     <h2>登录</h2>
     <form action="">
         <div v-bind:class="'row'">
             <label for="r-email">用户名</label>
-            <input type="text" id="r-email" v-model="logInData.userName">
+            <input type="text" id="r-user" v-model="logInData.userName">
         </div>
         <div v-bind:class="'row'">
             <label for="r-email">密码</label>
-            <input type="text" id="r-email" v-model="logInData.password">
+            <input type="text" id="r-password" v-model="logInData.password">
         </div>
         <div v-bind:class="classObject">
             <button type="submit">登录</button>
@@ -19,7 +20,9 @@ Vue.component('login', {
             <a @click="toSignUp" href="javascript:;">注册</a>
         </div>
     </form>
-</div>`,
+</div>
+</div>
+`,
     data: function () {
         return {
             logInData: {

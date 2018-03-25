@@ -1,5 +1,6 @@
 Vue.component('sign-up', {
-    template: `<div :class="'sign-up'"  v-cloak @submit.prevent="signUp">
+    template: `<div :class="'sign-wrapper'">
+    <div :class="'sign-up'"  v-cloak @submit.prevent="signUp">
     <span @click="clouseSignupFrame" :class="'clouse'">x</span>
     <h2>注册</h2>
     <form action="">
@@ -23,7 +24,9 @@ Vue.component('sign-up', {
             <a @click="toLogin" href="javascript:;">登录</a>
         </div>
     </form>
-</div>`,
+</div>
+</div>
+`,
     data: function () {
         return {
             userName: '',
@@ -57,11 +60,13 @@ Vue.component('sign-up', {
                 alert('注册成功')
                 window.location.reload()
             }, (error) => {
-                console.log(error)
+                console.log(error.code)
                 if (error.code === 202) {
                     alert('用户名已经存在,请更换用户名')
-                } else if (error.code === 203 || 214) {
+                } else if (error.code === 203) {
                     alert('邮箱已被注册,请更换邮箱')
+                }else if(error.code===125){
+                    alert('邮箱格式不正确')
                 }
             });
         }

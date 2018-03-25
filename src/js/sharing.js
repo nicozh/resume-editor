@@ -2,9 +2,11 @@ Vue.component('sharing', {
     props: ['sharLink'],
     template: `
     <div :class="'sharing'">
-        <div :id="'url'">{{sharLink}}</div>
-        <input type="button" @click="copyLink" value="点击复制代码" />
-        <button @click="clouseSharingFrame">关闭窗口</button>
+        <div class="url" :id="'url'">{{sharLink ||'请先登录'}}</div>
+        <div class="button">
+            <span  @click="copyLink" >复制链接</span>        
+            <span @click="clouseSharingFrame">关闭窗口</span>
+        </div>
     </div>`,
     data: function () {
         return {}
