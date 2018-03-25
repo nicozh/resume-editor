@@ -1,15 +1,21 @@
 .sidebar {
-    border: 1px solid #aaa;
     display: flex;
     justify-content: space-between;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: #ccc
+    background: #254665;
+    color: white;
+    height: 60px
 }
-.sidebar span{
-    cursor: pointer;        
+
+span {
+    cursor: pointer;
+}
+
+h3 {
+    color: #254665;
 }
 
 .current-user {
