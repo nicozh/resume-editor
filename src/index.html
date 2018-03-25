@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 
 <head>
     <meta charset="UTF-8">
@@ -39,7 +39,7 @@
                         <input id="info-photo" style=" display:none; border:1px solid red" v-on:change="saveImages" type="file">
                         <span>个人信息</span>
                         <div class="info-photo">
-                            <label for="info-photo">添加照片</label>
+                            <label v-show="manager" for="info-photo">添加照片</label>
                             <img v-bind:src="resume.infoPhoto" alt="">
                         </div>
                         <li>
@@ -56,22 +56,35 @@
                             </div>
                         </li>
                         <li>
-                            <span>邮箱</span>
-                            <div class="info-text">
-                                <info v-bind:value="resume.email" v-on:edit="y('email',$event)"></info>
-
-                            </div>
-                        </li>
-                        <li>
                             <span>微信</span>
                             <div class="info-text">
                                 <info v-bind:value="resume.weChat" v-on:edit="y('weChat',$event)"></info>
                             </div>
                         </li>
                         <li>
+                            <span>邮箱</span>
+                            <div class="info-text">
+                                <info v-bind:value="resume.email" v-on:edit="y('email',$event)"></info>
+
+                            </div>
+                        </li>
+                        
+                        <li>
                             <span>电话</span>
                             <div class="info-text">
                                 <info v-bind:value="resume.phone" v-on:edit="y('phone',$event)"></info>
+                            </div>
+                        </li>
+                        <li>
+                            <span>博客</span>
+                            <div class="info-text">
+                                <info v-bind:value="resume.blog" v-on:edit="y('blog',$event)"></info>
+                            </div>
+                        </li>
+                        <li>
+                            <span>github</span>
+                            <div class="info-text">
+                                <info v-bind:value="resume.github" v-on:edit="y('github',$event)"></info>
                             </div>
                         </li>
                     </ol>
@@ -94,11 +107,11 @@
                                 <span>描述</span>
                                 <info v-bind:value="resume.skils[index].description" v-on:edit="onSkil('skils',`${index}`,'description',$event)"></info>
                             </div>
-                            <span class="del-skil" v-if="index>=2" @click="deleteSkil(index)">删除</span>
+                            <span v-show="manager" class="del-skil" v-if="index>=2" @click="deleteSkil(index)">删除</span>
                         </li>
 
                     </ol>
-                    <div class="add-skil">
+                    <div v-show="manager" class="add-skil">
                         <span @click="addSkil">添加技能</span>
                     </div>
                 </section>
@@ -128,16 +141,16 @@
                                     <info v-bind:value="resume.projects[index].description" v-on:edit="onSkil('projects',`${index}`,'description',$event)"></info>
 
                                 </div>
-                                <span class="del-project" v-if="index>=2" @click="deleteProject(index)">删除</span>
+                                <span v-show="manager" class="del-project" v-if="index>=2" @click="deleteProject(index)">删除</span>
                             </div>
                             <div class="p-img">
-                                <label @click="getProjectIndex(index)" v-bind:class=`img${index}` for="preview-img">点击添加预览图</label>
+                                <label v-show="manager" @click="getProjectIndex(index)" v-bind:class=`img${index}` for="preview-img">点击添加预览图</label>
                                 <img v-bind:src="resume.projects[index].preview" alt="">
                             </div>
                         </li>
-                        <li class="add-project">
+                        <div v-show="manager" class="add-project">
                             <span @click="addProject">添加项目</span>
-                        </li>
+                        </div>
                     </ol>
                 </section>
             </div>
@@ -147,7 +160,7 @@
 
         <sign-up v-show="signUpFrame" @clouse-signup="signUpFrame=false" @show-login="signUpFrame=false,logInFrame=true"></sign-up>
         <sharing v-show="sharingFrame" @clouse-sharing="sharingFrame = false" :shar-link="sharLink.link"></sharing>
-        
+
         <header class="sidebar">
             <div class="current-user">
                 <input id="head-img" style=" display:none;   opacity: 1; border:1px solid red" v-on:change="saveImages" type="file">
@@ -172,8 +185,7 @@
                 </div>
             </div>
 
-
-            <ol>
+            <ol v-show="manager">
                 <li @click="saveResume">
                     <span>保存</span>
                 </li>
