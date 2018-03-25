@@ -1,64 +1,86 @@
 .p-img {
     width: 50%;
-    max-width: 50%;
-    border: 1px solid red;
-    max-height: 300px;
+    max-width: 100%;
+    border: 1px solid #ccc;
+    /* max-height: 300px; */
     position: relative;
     text-align: center;
     display: flex;
-    align-items: center
+    align-items: center;
+    margin: 2px;
+    min-height: 80px;
 }
 
 .p-img:hover>label {
-    display: block;
+    display: flex;
 }
 
 .p-img>label {
-    position: absolute;
+    align-items: center;
+    justify-content: center;
     display: none;
+    position: absolute;
+    /* display: none; */
     top: 0px;
     right: 0px;
-    border: 1px solid greenyellow;
     width: 100%;
     height: 100%;
     color: slateblue;
-    font-size: 25px
+    font-size: 25px;
+    /* background: pink; */
 }
 
 .p-img>img {
     max-width: 100%;
-    max-height: 100%
+    max-height: 100%;
 }
 
 .p-text {
     width: 50%;
-    border: 1px solid blueviolet;
+    border-right: 1px solid #ccc;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     position: relative;
+    margin: 2px
 }
 
 .p-text>.wrapper {
     display: flex;
-    
+    margin-left: 3px;
 }
-.p-text>.wrapper .out-box{
+
+.p-text>.wrapper:nth-child(4) textarea {
+    /* max-height: 150px */
+}
+
+.p-text>.wrapper .out-box {
     flex: 1
 }
+
 .r-content .projects li {
     display: flex;
     justify-content: space-between;
     margin: 10px auto;
     width: 80%;
-    max-height: 300px;
+    /* max-height: 300px; */
     border: 1px solid #aaa;
-    overflow: hidden;
+    /* overflow: hidden; */
+    /* min-height: 250px; */
 }
-.projects li:hover>.p-text .del-project{
+
+.add-project {
+    width: 80%;
+    margin: 0 auto 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.projects li:hover>.p-text .del-project {
     display: block
 }
-.projects>ol>li>.p-text>.del-project{
+
+.projects>ol>li>.p-text>.del-project {
     display: none;
     border: 1px solid #ccc;
     position: absolute;
@@ -67,3 +89,4 @@
     padding: 1px;
     border-radius: 3px;
 }
+section.projects{margin-top: 20px;}
