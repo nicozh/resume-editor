@@ -49,6 +49,9 @@
     display: flex;
     margin-left: 3px;
 }
+.p-text>.wrapper>span{
+    padding-top: 4px;    
+}
 
 .p-text>.wrapper:nth-child(4) textarea {
     /* max-height: 150px */

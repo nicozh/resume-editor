@@ -22,6 +22,9 @@ a {
 h3 {
     text-align: center
 }
+span {
+    cursor: pointer;
+}
 
 .page {
     margin-top: 80px;
@@ -62,12 +65,12 @@ textarea:focus {
     position: fixed;
     top: 50%;
     left: 50%;
-    border: 1px solid #ccc;
     margin-top: -75px;
     margin-left: -20%;
     padding: 8px;
     background: #254665;
-    color: white
+    color: white;
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
 }
 
 .sharing>.url {
@@ -75,6 +78,9 @@ textarea:focus {
     padding: 5px;
     height: 100px;
     word-break: break-all;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 .sharing>.button {

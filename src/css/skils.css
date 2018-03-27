@@ -29,6 +29,7 @@
 }
 .skils .skil-name>span{
     display: block;
+    padding-top: 4px;    
 }
 .skils li {
     width: 49%;

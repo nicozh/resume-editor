@@ -68,7 +68,7 @@
 
                             </div>
                         </li>
-                        
+
                         <li>
                             <span>电话</span>
                             <div class="info-text">
@@ -95,26 +95,6 @@
                 </div>
             </section>
             <div class="ability">
-                <section class="skils">
-                    <h3>技能</h3>
-                    <ol>
-                        <li v-for="(skil,index) in resume.skils">
-                            <div class="skil-name">
-                                <span>技能</span>
-                                <info v-bind:value="resume.skils[index].name" v-on:edit="onSkil('skils',`${index}`,'name',$event)"></info>
-                            </div>
-                            <div class="skil-name">
-                                <span>描述</span>
-                                <info v-bind:value="resume.skils[index].description" v-on:edit="onSkil('skils',`${index}`,'description',$event)"></info>
-                            </div>
-                            <span v-show="manager" class="del-skil" v-if="index>=2" @click="deleteSkil(index)">删除</span>
-                        </li>
-
-                    </ol>
-                    <div v-show="manager" class="add-skil">
-                        <span @click="addSkil">添加技能</span>
-                    </div>
-                </section>
                 <section class="projects">
                     <h3>项目</h3>
                     <ol>
@@ -152,6 +132,26 @@
                             <span @click="addProject">添加项目</span>
                         </div>
                     </ol>
+                </section>
+                <section class="skils">
+                    <h3>技能</h3>
+                    <ol>
+                        <li v-for="(skil,index) in resume.skils">
+                            <div class="skil-name">
+                                <span>技能</span>
+                                <info v-bind:value="resume.skils[index].name" v-on:edit="onSkil('skils',`${index}`,'name',$event)"></info>
+                            </div>
+                            <div class="skil-name">
+                                <span>描述</span>
+                                <info v-bind:value="resume.skils[index].description" v-on:edit="onSkil('skils',`${index}`,'description',$event)"></info>
+                            </div>
+                            <span v-show="manager" class="del-skil" v-if="index>=2" @click="deleteSkil(index)">删除</span>
+                        </li>
+
+                    </ol>
+                    <div v-show="manager" class="add-skil">
+                        <span @click="addSkil">添加技能</span>
+                    </div>
                 </section>
             </div>
 
