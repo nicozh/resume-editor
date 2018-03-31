@@ -134,10 +134,8 @@ var app = new Vue({
                 // 保存到云端
                 user.save().then((todo) => {
                     alert('保存成功')
-                    // console.log(todo)
                 }, (error) => {
                     alert('保存失败')
-                    console.log(error)
                 })
 
             }

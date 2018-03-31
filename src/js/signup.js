@@ -6,11 +6,11 @@ Vue.component('sign-up', {
     <form action="">
         <div :class="'row'">
             <label for="r-email">用户名</label>
-            <input v-model="userName" type="text" :id="'r-email'">
+            <input v-model.trim="userName" type="text" :id="'r-email'">
         </div>
         <div class="row">
             <label for="r-email">邮箱</label>
-            <input v-model="email" type="text" :id="'r-email'">
+            <input v-model.trim="email" type="text" :id="'r-email'">
         </div>
         <div class="row">
             <label for="r-email">密码</label>
@@ -60,7 +60,6 @@ Vue.component('sign-up', {
                 alert('注册成功')
                 window.location.reload()
             }, (error) => {
-                console.log(error.code)
                 if (error.code === 202) {
                     alert('用户名已经存在,请更换用户名')
                 } else if (error.code === 203) {

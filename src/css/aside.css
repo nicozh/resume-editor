@@ -9,6 +9,11 @@
     color: white;
     height: 60px
 }
+
+.toHome {
+    margin: auto 10px
+}
+
 h3 {
     color: #254665;
 }

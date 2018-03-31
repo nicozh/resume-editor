@@ -36,7 +36,7 @@
     border: 1px solid #aaa;
     position: relative;
     margin: 5px 0;
-    height: 140px;
+    /* height: 140px; */
 }
 
 .skils li>.del-skil{

@@ -39,7 +39,7 @@
                         <input id="info-photo" style=" display:none; border:1px solid red" v-on:change="saveImages" type="file">
                         <span>个人信息</span>
                         <div class="info-photo">
-                            <label v-show="manager" for="info-photo">添加照片</label>
+                            <label v-if="manager" for="info-photo">添加照片</label>
                             <img v-bind:src="resume.infoPhoto" alt="">
                         </div>
                         <li>
@@ -121,14 +121,14 @@
                                     <info v-bind:value="resume.projects[index].description" v-on:edit="onSkil('projects',`${index}`,'description',$event)"></info>
 
                                 </div>
-                                <span v-show="manager" class="del-project" v-if="index>=2" @click="deleteProject(index)">删除</span>
+                                <span v-if="manager" class="del-project" v-if="index>=2" @click="deleteProject(index)">删除</span>
                             </div>
                             <div class="p-img">
-                                <label v-show="manager" @click="getProjectIndex(index)" v-bind:class=`img${index}` for="preview-img">点击添加预览图</label>
+                                <label v-if="manager" @click="getProjectIndex(index)" v-bind:class=`img${index}` for="preview-img">点击添加预览图</label>
                                 <img v-bind:src="resume.projects[index].preview" alt="">
                             </div>
                         </li>
-                        <div v-show="manager" class="add-project">
+                        <div v-if="manager" class="add-project">
                             <span @click="addProject">添加项目</span>
                         </div>
                     </ol>
@@ -145,11 +145,11 @@
                                 <span>描述</span>
                                 <info v-bind:value="resume.skils[index].description" v-on:edit="onSkil('skils',`${index}`,'description',$event)"></info>
                             </div>
-                            <span v-show="manager" class="del-skil" v-if="index>=2" @click="deleteSkil(index)">删除</span>
+                            <span v-if="manager" class="del-skil" v-if="index>=2" @click="deleteSkil(index)">删除</span>
                         </li>
 
                     </ol>
-                    <div v-show="manager" class="add-skil">
+                    <div v-if="manager" class="add-skil">
                         <span @click="addSkil">添加技能</span>
                     </div>
                 </section>
@@ -162,6 +162,9 @@
         <sharing v-show="sharingFrame" @clouse-sharing="sharingFrame = false" :shar-link="sharLink.link"></sharing>
 
         <header class="sidebar">
+            <div v-if="!manager" class="toHome">
+                <a href="./">回到主页</a>
+            </div>
             <div class="current-user">
                 <input id="head-img" style=" display:none;   opacity: 1; border:1px solid red" v-on:change="saveImages" type="file">
                 <div class="user-sign" v-show="logOutBt">
@@ -170,7 +173,7 @@
                         <label for="head-img">添加头像</label>
                     </div>
                     <div class="userandsign">
-                        <strong>{{currentUser.userName}}</strong>
+                        <strong v-cloak>{{currentUser.userName}}</strong>
                         <span @click="logOut">登出</span>
                     </div>
                 </div>
@@ -185,7 +188,7 @@
                 </div>
             </div>
 
-            <ol v-show="manager">
+            <ol v-if="manager">
                 <li @click="saveResume">
                     <span>保存</span>
                 </li>

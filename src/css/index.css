@@ -22,16 +22,17 @@ a {
 h3 {
     text-align: center
 }
+
 span {
     cursor: pointer;
 }
 
 .page {
     margin-top: 80px;
-    border: 1px solid #aaa;    
+    border: 1px solid #aaa;
 }
 
-div[v-cloak] {
+[v-cloak] {
     display: none;
 }
 
@@ -70,7 +71,7 @@ textarea:focus {
     padding: 8px;
     background: #254665;
     color: white;
-    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75);
 }
 
 .sharing>.url {
@@ -92,4 +93,3 @@ textarea:focus {
     border: 1px solid #999;
     border-radius: 3px;
 }
-

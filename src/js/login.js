@@ -6,7 +6,7 @@ Vue.component('login', {
     <form action="">
         <div v-bind:class="'row'">
             <label for="r-email">用户名</label>
-            <input type="text" id="r-user" v-model="logInData.userName">
+            <input type="text" id="r-user" v-model.trim="logInData.userName">
         </div>
         <div v-bind:class="'row'">
             <label for="r-email">密码</label>
