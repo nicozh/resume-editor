@@ -1,6 +1,40 @@
-.sidebar{
+.sidebar {
     display: none;
 }
-.add-skil,.add-project{
+
+.projects>ol>.add-project {
     display: none
+}
+
+.ability>.skils>.add-skil {
+    display: none
+}
+
+.page {
+    margin-top: 0;
+    border: none;
+}
+
+title {
+    display: none
+}
+
+.skils ol {
+    page-break-after: avoid
+}
+
+ol>li {
+    page-break-inside: avoid
+}
+
+.skils{
+    page-break-before: auto;    
+}
+.skils>ol>li>.skil-name{
+    page-break-before: avoid;
+    page-break-inside: avoid;
+    page-break-after: avoid;        
+}
+.skils{
+    page-break-inside: avoid;        
 }
