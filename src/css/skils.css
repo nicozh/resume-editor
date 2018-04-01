@@ -1,7 +1,7 @@
 
 .skils {
     width: 100%;
-    /* border: 1px solid green; */
+    margin-top: 20px;
 }
 
 .skils ol {
@@ -38,7 +38,9 @@
     margin: 5px 0;
     /* height: 140px; */
 }
-
+.skils li:hover>.del-skil{
+    display: block;
+}
 .skils li>.del-skil{
     position: absolute;
     right: 0;
@@ -47,4 +49,5 @@
     border-radius: 4px;
     padding: 2px;
     margin: 2px;
+    display: none;
 }

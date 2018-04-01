@@ -28,8 +28,10 @@ span {
 }
 
 .page {
-    margin-top: 80px;
+    width: 90%;
+    margin: 80px auto 60px;
     border: 1px solid #aaa;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.75);  
 }
 
 [v-cloak] {
