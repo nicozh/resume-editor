@@ -1,0 +1,34 @@
+* {
+    transition: all 0.3s
+}
+
+.page.style1>.r-content span {
+    color: #254665
+}
+.page.style1{
+    background: #B8C7F6
+}
+.page.style1 textarea{
+    background: #B8C7F6
+}
+/**/
+.page.style2>.r-content span {
+    color: #00C091
+}
+.page.style2{
+    background: rgb(247, 179, 152)
+}
+.page.style2 textarea{
+    background: rgb(247, 179, 152)
+}
+
+/**/
+.page.style3>.r-content span {
+    color: rgb(214, 147, 223)
+}
+.page.style3{
+    background: #F0ECE9
+}
+.page.style3 textarea{
+    background: #F0ECE9
+}

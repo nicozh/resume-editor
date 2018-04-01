@@ -24,8 +24,8 @@ var app = new Vue({
                 { name: 'vue', description: '熟悉vue' },
             ],
             projects: [
-                { name: '画板', description: '项目描述', link: 'link', code: 'github', preview: 'url' },
-                { name: '佩奇', description: '项目描述', link: 'link', code: 'github', preview: 'url' },
+                { name: '画板', description: '项目描述', link: 'link', code: 'github', preview: '' },
+                { name: '佩奇', description: '项目描述', link: 'link', code: 'github', preview: '' },
             ],
             projectIndex: NaN
         },
@@ -36,9 +36,24 @@ var app = new Vue({
         },
         sharLink: {
             link: ''
+        },
+        pageClass: {
+            number: 1,
+            string: 'style',
+            class: '',
+            page: true
         }
     },
     methods: {
+        changeClass() {
+            this.pageClass.class = this.pageClass.string + this.pageClass.number
+
+            if (this.pageClass.number < 4) {
+                this.pageClass.number += 1
+            } else {
+                this.pageClass.number = 1
+            }
+        },
         getCurrentUser() {
             let currentUser = AV.User.current()
             if (currentUser) {
@@ -72,7 +87,7 @@ var app = new Vue({
             this.resume.skils.splice(index, 1)
         },
         addProject() {
-            this.resume.projects.push({ name: '项目名', description: '描述', link: '预览链接', code: '源码地址', preview: '图片' })
+            this.resume.projects.push({ name: '项目名', description: '描述', link: '预览链接', code: '源码地址', preview: '' })
         },
         deleteProject(index) {
             this.resume.projects.splice(index, 1)
@@ -174,7 +189,7 @@ var app = new Vue({
             this.logOutBt = false
             this.logInBt = true
             this.currentUser.userName = ''
-            window.location.reload()            
+            window.location.reload()
             alert('注销成功')
 
             // 现在的 currentUser 是 null 了
@@ -198,7 +213,7 @@ window.onload = function () {
                 $(x[i]).attr('readonly', 'false')
             }
         }, 1000);
-       
+
     } else {
         app.getCurrentUser()
     }
